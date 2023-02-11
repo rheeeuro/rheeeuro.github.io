@@ -6,6 +6,8 @@ parent: Variables
 grand_parent: ES6
 ---
 
+## Let and Const
+
 ES6 이전에는 모든 변수 선언에 var을 이용했다.
 하지만 여러 개발자들이 개발할 때 변수명의 중복이나 재정의를 막을 수 없었다.
 따라서 흔히 사용하는 변수명(a, b, c, name, age, etc...)을 기피했다.
