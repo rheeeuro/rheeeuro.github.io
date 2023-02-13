@@ -30,6 +30,7 @@ button.addEventListener("click", () => {
 
 {: .highlight }
 `<button>버튼</button>`
+
 {: .highlight }
 Window {0: Window, window: Window, self: Window, document: document, name: '', location: Location, …}
 
@@ -61,4 +62,6 @@ person.sayHello();
 
 {: .highlight }
 Hi undefined
+
+{: .highlight }
 Hello Tom
