@@ -5,6 +5,8 @@ nav_order: 1
 parent: Electron
 ---
 
+## Introduction
+
 Electron은 HTML, CSS, Javascript로 Desktop app을 만들어주는 framework이다.
 Chromuim과 Node.js가 내장되어있고, Javascript 코드 베이스로 Windows, macOS, Linux에 cross-platform app을 만들 수 있다.
 
