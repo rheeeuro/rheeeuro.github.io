@@ -50,3 +50,19 @@ h
 
          i
 ```
+
+---
+
+template literal을 통해 html을 깔끔한 코드로 추가 및 수정할 수 있다.
+
+```js
+const container = document.getElementById("container");
+const arr = ["a", "b", "c", "d"];
+
+const list = `
+  <ul>
+    ${arr.map((item) => `<li>${item}</li>`)}
+  </ul>
+`;
+container.innerHTML = list;
+```
