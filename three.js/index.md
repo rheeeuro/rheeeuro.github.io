@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Etc
-nav_order: 5
+title: Three.js
+nav_order: 4
 has_children: true
 ---
