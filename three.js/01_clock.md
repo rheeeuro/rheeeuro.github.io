@@ -7,7 +7,7 @@ parent: Three.js
 
 ## Clock
 
-출처: https://youtu.be/tVgcI_qbSn8
+출처: [Three.js in practice - 3D clock - tutorial for beginners 2022](https://youtu.be/tVgcI_qbSn8)
 
 일단 three.js의 기본 씬 설정 코드이다. three.js를 화면에 띄우기 위해서는 기본적으로 scene, camera, renderer 세 가지가 필요하다.
 
