@@ -95,3 +95,48 @@ scene.add(hexagonMesh);
 다음과 같이 hexagon 타일이 만들어진 것을 확인할 수 있다.
 
 ![result](./img/map_01.png)
+
+---
+
+hexagon 타일을 원형으로 만들어주기 위해 position이 일정 거리 이상이면 생성하지 않도록 만들어준다.
+
+```js
+for (let i = -10; i <= 10; i++) {
+  for (let j = -10; j <= 10; j++) {
+    let position = tileToPosition(i, j);
+
+    if (position.length() > 16) continue;
+
+    makeHex(3, tileToPosition(i, j));
+  }
+}
+```
+
+이후 랜덤한 노이즈를 주기 위해 simplex-noise 모듈을 설치한다.
+
+```js
+const MAX_HEIGHT = 10;
+
+// in init function
+const simplex = new SimplexNoise();
+
+// modify loop
+for (let i = -10; i <= 10; i++) {
+  for (let j = -10; j <= 10; j++) {
+    let position = tileToPosition(i, j);
+
+    if (position.length() > 16) continue;
+
+    let noise = (simplex.noise2D(i * 0.1, j * 0.1) + 1) * 0.5;
+    noise = Math.pow(noise, 1.5);
+
+    makeHex(noise * MAX_HEIGHT, tileToPosition(i, j));
+  }
+}
+```
+
+다음과 같이 원형이면서 랜덤한 높이의 hexagon 타일이 완성되었다.
+
+![result](./img/map_02.png)
+
+---
