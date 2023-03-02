@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Intro to Rest Parameters
-nav_order: 2
+nav_order: 3
 parent: Rest and Spread
 grand_parent: ES6
 ---
