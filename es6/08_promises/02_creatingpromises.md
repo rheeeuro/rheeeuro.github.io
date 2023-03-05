@@ -19,9 +19,9 @@ console.log(getData);
 setInterval(console.log, 1000, getData);
 ```
 
-```
-Promise {<pending>}
-Promise {<pending>}
-Promise {<fulfilled>: 'resolved!'}
-...
-```
+{: .highlight }
+
+> Promise {&lt;pending&gt;}
+> Promise {&lt;pending&gt;}
+> Promise {&lt;fulfilled&gt;: 'resolved!'}
+> ...
