@@ -1,11 +1,11 @@
 ---
 layout: default
-title: For Of Loop
+title: For of Loop
 parent: ES6
 nav_order: 7
 ---
 
-## For Of Loop
+## For of Loop
 
 ```js
 const rainbow = ["Red", "Orange", "Yellow", "Green", "Blue", "Navy", "Purple"];
