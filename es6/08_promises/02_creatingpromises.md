@@ -21,7 +21,7 @@ setInterval(console.log, 1000, getData);
 
 {: .highlight }
 
-> Promise {&lt;pending&gt;}
-> Promise {&lt;pending&gt;}
-> Promise {&lt;fulfilled&gt;: 'resolved!'}
+> Promise {&lt;pending&gt;}<br/>
+> Promise {&lt;pending&gt;}<br/>
+> Promise {&lt;fulfilled&gt;: 'resolved!'}<br/>
 > ...
