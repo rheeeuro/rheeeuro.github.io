@@ -19,8 +19,10 @@ console.log(hello);
 
 {: .highlight }
 
-> something<br/>
-> Promise {&lt;pending&gt;}<br/>
+> something
+>
+> Promise {&lt;pending&gt;}
+>
 > GET http://example.com/movies.json net::ERR_FAILED
 
 다음과 같이 데이터를 가져온 후 문자열을 출력하고 hello를 출력하라고 했지만 실제로는 문자열과 hello 이후 에러가 출력되는 모습이다. 이것을 자바스크립트의 비동기성(async)라고 한다.
