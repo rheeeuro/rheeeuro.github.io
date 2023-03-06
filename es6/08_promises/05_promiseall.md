@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Promise.all
-nav_order: 4
+nav_order: 5
 parent: Promises
 grand_parent: ES6
 ---
