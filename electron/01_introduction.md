@@ -26,6 +26,7 @@ const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
 function createWindow() {
+  // 브라우저 윈도우 생성
   const win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -34,12 +35,18 @@ function createWindow() {
     },
   });
 
+  // HTML파일 로드
   win.loadFile("index.html");
+
+  // 개발자 도구 열기
+  // mainWindow.webContents.openDevTools()
 }
 
+// Electron이 완료되고 브라우저 창을 만들 준비가 끝난 뒤 동작 설정
 app.whenReady().then(() => {
   createWindow();
 
+  // 맥에서 아이콘을 누른 경우 창이 없으면 다시 창을 만든다.
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
@@ -47,6 +54,7 @@ app.whenReady().then(() => {
   });
 });
 
+// 맥을 제외한 OS에서 모든 창이 닫힌 경우 종료, 맥은 Cmd+Q를 눌러 종료하기 전까지 활성화시키는 것이 일반적이다.
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
@@ -57,6 +65,7 @@ app.on("window-all-closed", () => {
 ```js
 // preload.js
 
+// 모든 Node.js API를 preload에서 사용할 수 있다. 크롬 익스텐션과 같은 샌드박스를 가지고있다.
 window.addEventListener("DOMContentLoaded", () => {
   const replaceText = (selector, text) => {
     const element = document.getElementById(selector);
