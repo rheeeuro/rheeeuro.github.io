@@ -39,3 +39,5 @@ getMoviesParallel();
 > {status: 'ok', status_message: 'Query was successful', data: {…}, @meta: {…}}
 >
 > done
+
+이런 코드들을 깔끔하게 만들어주기 위해 axios와 같은 라이브러리를 사용하기도 한다.
