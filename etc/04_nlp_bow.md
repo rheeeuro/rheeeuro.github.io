@@ -5,7 +5,7 @@ nav_order: 4
 parent: Etc
 ---
 
-# 2) Bag of Words(BoW)
+# 2) Bag of Words(BoW)(_21.12.08_)
 
 > Bag of Words란 단어들의 문맥이나 순서를 무시하고, **`빈도 값(frequency)`** 을 부여해 피쳐 값을 만드는 모델입니다.  
 > Bag of Words는 직역하자면 단어들의 가방입니다.  
