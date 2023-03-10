@@ -1,7 +1,7 @@
 ---
 layout: default
-title: React Component
-nav_order: 2
+title: Redux
+nav_order: 3
 parent: Etc
 ---
 
