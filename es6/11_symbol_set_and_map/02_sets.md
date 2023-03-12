@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sets
-nav_order: 1
+nav_order: 2
 parent: Symbol, Set and Map
 grand_parent: ES6
 ---
