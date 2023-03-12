@@ -33,8 +33,8 @@ console.log(weakSet);
 
 {: .highlight }
 
-> before garbage collector: WeakSet {{…}, {…}}
+> before garbage collector: WeakSet \{\{…\}, \{…\}\}
 >
-> after garbage collector: WeakSet {{…}}
+> after garbage collector: WeakSet \{\{…\}\}
 
 기본적으로 WeakSet은 잘 사용되지 않는다.

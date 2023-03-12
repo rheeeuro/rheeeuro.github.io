@@ -18,7 +18,7 @@ console.log(newMap);
 ```
 
 {: .highlight }
-Map(1) {'age' => 20}
+Map(1) \{'age' =\> 20\}
 
 ---
 

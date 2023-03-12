@@ -17,7 +17,7 @@ console.log(newSet);
 ```
 
 {: .highlight }
-Set(4) {1, 2, 3, 4}
+Set(4) \{1, 2, 3, 4\}
 
 Set에도 다양한 메서드들이 존재한다.
 
@@ -41,11 +41,11 @@ console.log(newSet);
 >
 > false
 >
-> Set(3) {2, 3, 4}
+> Set(3) \{2, 3, 4\}
 >
-> Set(0) {size: 0}
+> Set(0) \{size: 0\}
 >
-> Set(1) {'one'}
+> Set(1) \{'one'\}
 
 ```js
 const newSet = new Set([1, 2, 3, 3, 3, 4]);
@@ -58,4 +58,4 @@ console.log(newSet.keys());
 
 > 4
 >
-> SetIterator {1, 2, 3, 4}
+> SetIterator \{1, 2, 3, 4\}
