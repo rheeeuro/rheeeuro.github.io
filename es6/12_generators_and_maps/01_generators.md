@@ -37,8 +37,11 @@ console.log(listG.next());
 {: .highlight }
 
 > {value: "fisrt", done: false}
+>
 > {value: "second", done: false}
+>
 > {value: "third", done: false}
+>
 > {value: undefined, done: true}
 
 순서대로 값을 반환하고 done 여부를 같이 알려준다. 함수를 호출할 수는 있지만 이 이후로는 아무런 값을 받아볼 수 없다.
