@@ -31,6 +31,8 @@ weakSet.add({ second: true });
 console.log(weakSet);
 ```
 
+{: .highlight }
+
 > before garbage collector: WeakSet {{…}, {…}}
 >
 > after garbage collector: WeakSet {{…}}
