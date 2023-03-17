@@ -6,7 +6,7 @@ parent: ES2020
 grand_parent: ES6
 ---
 
-## ?? Operator (Nullish Coalescing Operator은)
+## ?? Operator (Nullish Coalescing Operator)
 
 Nullish Coalescing Operator은 `??`로 표시되며 logical OR (`||`)과 같은 논리연산자이다. 이 연산자는 기본값을 줄 때 매우 유용하다.
 
