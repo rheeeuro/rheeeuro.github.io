@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Nullish Coalescing Operator (??)
+title: ?? Operator
 nav_order: 1
 parent: ES2020
 grand_parent: ES6
 ---
 
-## Nullish Coalescing Operator (??)
+## ?? Operator (Nullish Coalescing Operator은)
 
 Nullish Coalescing Operator은 `??`로 표시되며 logical OR (`||`)과 같은 논리연산자이다. 이 연산자는 기본값을 줄 때 매우 유용하다.
 
