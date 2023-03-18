@@ -307,4 +307,4 @@ cLines.children.forEach((c, i) => {
 
 마우스 움직임에 따라 회전하는 시계가 완성되었다.
 
-![result](./img/clock.gif)
+![result](./img/clock/clock.gif)

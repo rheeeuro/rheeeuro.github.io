@@ -94,7 +94,7 @@ scene.add(hexagonMesh);
 
 다음과 같이 hexagon 타일이 만들어진 것을 확인할 수 있다.
 
-![result](./img/map_01.png)
+![result](./img/map/map_01.png)
 
 ---
 
@@ -137,7 +137,7 @@ for (let i = -10; i <= 10; i++) {
 
 다음과 같이 원형이면서 랜덤한 높이의 hexagon 타일이 완성되었다.
 
-![result](./img/map_02.png)
+![result](./img/map/map_02.png)
 
 ---
 
@@ -224,7 +224,7 @@ scene.add(stoneMesh, dirtMesh, dirt2Mesh, sandMesh, grassMesh);
 
 다음과 같이 texture가 입혀진 것을 확인할 수 있다.
 
-![result](./img/map_03.png)
+![result](./img/map/map_03.png)
 
 다음은 Scene의 광원을 설정할 차례이다. 일단 까먹기 쉬우니 renderer에 shadowMap 설정을 추가해준다.
 
@@ -270,4 +270,181 @@ function hexMesh(geo, map) {
 ```
 
 그림자가 적용된 것을 확인할 수 있다.
-![result](./img/map_04.png)
+![result](./img/map/map_04.png)
+
+---
+
+그 다음은 물을 만들어 줄 차례이다. 물 Mesh를 만들어준다.
+
+```js
+// in init function
+let seaMesh = new Mesh(
+  new CylinderGeometry(17, 17, MAX_HEIGHT * 0.2, 50),
+  new MeshPhysicalMaterial({
+    envMap: envmap,
+    color: new Color("#55aaff").convertSRGBToLinear().multiplyScalar(3),
+    ior: 1.4,
+    transmission: 1,
+    transparent: true,
+    thickness: 1.5,
+    envMapIntensity: 0.2,
+    roughness: 1,
+    metalness: 0.025,
+    roughnessMap: textures.water,
+    metalnessMap: textures.water,
+  })
+);
+seaMesh.receiveShadow = true;
+seaMesh.position.set(0, MAX_HEIGHT * 0.1, 0);
+scene.add(seaMesh);
+```
+
+물이 생긴 것을 확인할 수 있다.
+![result](./img/map/map_05.png)
+
+Cylinder의 사이드 부분이 이상하니 살짝 더 큰 Cylinder로 덮어주도록 하자.
+
+```js
+// in init function
+
+let mapContainer = new Mesh(
+  new CylinderGeometry(17.1, 17.1, MAX_HEIGHT * 0.25, 50, 1, true),
+  new MeshPhysicalMaterial({
+    envMap: envmap,
+    map: textures.dirt,
+    envMapIntensity: 0.2,
+    side: DoubleSide,
+    // 더블 사이드를 설정 안해주면 안쪽이 채워지지 않게 된다.
+  })
+);
+mapContainer.receiveShadow = true;
+mapContainer.position.set(0, MAX_HEIGHT * 0.125, 0);
+scene.add(mapContainer);
+```
+
+마지막으로 바닥 밑부분을 만들어준다.
+
+```js
+let mapFloor = new Mesh(
+  new CylinderGeometry(18.5, 18.5, MAX_HEIGHT * 0.1, 50),
+  new MeshPhysicalMaterial({
+    envMap: envmap,
+    map: textures.dirt2,
+    envMapIntensity: 0.1,
+    side: DoubleSide,
+  })
+);
+mapFloor.receiveShadow = true;
+mapFloor.position.set(0, -MAX_HEIGHT * 0.05, 0);
+scene.add(mapFloor);
+```
+
+바닥이 생긴 것을 확인할 수 있다.
+![result](./img/map/map_06.png)
+
+---
+
+마지막으로 바닥에 돌과 나무를 배치해 볼 차례이다. 먼저 돌을 생성하는 함수를 만들어준다.
+
+```js
+function stone(height, position) {
+  const px = Math.random() * 0.4;
+  const pz = Math.random() * 0.4;
+
+  const geo = new SphereGeometry(Math.random() * 0.3 + 0.1, 7, 7);
+  geo.translate(position.x + px, height, position.y + pz);
+
+  return geo;
+}
+```
+
+이후 Geometry가 stone이나 sand인 경우 일정 확률로 돌이 생성되게 로직을 만들어준다. (sand인 경우에도 stoneGeo에 merge해 주어야 한다.)
+
+```js
+function makeHex(height, position) {
+  let geo = hexGeometry(height, position);
+  // hexagonGeometries = mergeBufferGeometries([hexagonGeometries, geo]);
+
+  if (height > STONE_HEIGHT) {
+    stoneGeo = mergeBufferGeometries([geo, stoneGeo]);
+
+    if (Math.random() > 0.8) {
+      stoneGeo = mergeBufferGeometries([stoneGeo, stone(height, position)]);
+    }
+  } else if (height > DIRT_HEIGHT) {
+    dirtGeo = mergeBufferGeometries([geo, dirtGeo]);
+  } else if (height > GRASS_HEIGHT) {
+    grassGeo = mergeBufferGeometries([geo, grassGeo]);
+  } else if (height > SAND_HEIGHT) {
+    sandGeo = mergeBufferGeometries([geo, sandGeo]);
+
+    if (Math.random() > 0.8 && stoneGeo) {
+      stoneGeo = mergeBufferGeometries([stoneGeo, stone(height, position)]);
+    }
+  } else if (height > DIRT2_HEIGHT) {
+    dirt2Geo = mergeBufferGeometries([geo, dirt2Geo]);
+  }
+}
+```
+
+같은 로직으로 나무를 만드는 함수를 만들어준다.
+
+```js
+function tree(height, position) {
+  const treeHeight = Math.random() * 1 + 1.25;
+
+  const geo = new CylinderGeometry(0, 1.5, treeHeight, 3);
+  geo.translate(position.x, height + treeHeight * 0 + 1, position.y);
+
+  const geo2 = new CylinderGeometry(0, 1.15, treeHeight, 3);
+  geo2.translate(position.x, height + treeHeight * 0.6 + 1, position.y);
+
+  const geo3 = new CylinderGeometry(0, 0.8, treeHeight, 3);
+  geo3.translate(position.x, height + treeHeight * 1.25 + 1, position.y);
+
+  return mergeBufferGeometries([geo, geo2, geo3]);
+}
+```
+
+마지막으로 구름을 생성하는 함수를 만들어준다.
+
+```js
+function clouds() {
+  let geo = new SphereGeometry(0, 0, 0);
+  let count = Math.floor(Math.pow(Math.random(), 0.45) * 4);
+
+  for (let i = 0; i < count; i++) {
+    const puff1 = new SphereGeometry(1.2, 7, 7);
+    const puff2 = new SphereGeometry(1.5, 7, 7);
+    const puff3 = new SphereGeometry(0.9, 7, 7);
+
+    puff1.translate(-1.85, Math.random() * 0.3, 0);
+    puff2.translate(0, Math.random() * 0.3, 0);
+    puff3.translate(1.85, Math.random() * 0.3, 0);
+
+    const cloudGeo = mergeBufferGeometries([puff1, puff2, puff3]);
+    cloudGeo.translate(
+      Math.random() * 20 - 10,
+      Math.random() * 7 + 7,
+      Math.random() * 20 - 10
+    );
+    cloudGeo.rotateY(Math.random() * Math.PI * 2);
+
+    geo = mergeBufferGeometries([geo, cloudGeo]);
+  }
+
+  const mesh = new Mesh(
+    geo,
+    new MeshStandardMaterial({
+      envMap: envmap,
+      envMapIntensity: 0.75,
+      flatShading: true,
+    })
+  );
+
+  scene.add(mesh);
+}
+```
+
+clouds 함수를 init 함수에서 호출해주면 완성이다.
+![result](./img/map/map_07.png)
