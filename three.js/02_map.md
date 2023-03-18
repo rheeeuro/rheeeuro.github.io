@@ -94,7 +94,7 @@ scene.add(hexagonMesh);
 
 다음과 같이 hexagon 타일이 만들어진 것을 확인할 수 있다.
 
-![result](./img/map/map_01.png)
+![result](./img/procedural_map/01.png)
 
 ---
 
@@ -137,7 +137,7 @@ for (let i = -10; i <= 10; i++) {
 
 다음과 같이 원형이면서 랜덤한 높이의 hexagon 타일이 완성되었다.
 
-![result](./img/map/map_02.png)
+![result](./img/procedural_map/02.png)
 
 ---
 
@@ -224,7 +224,7 @@ scene.add(stoneMesh, dirtMesh, dirt2Mesh, sandMesh, grassMesh);
 
 다음과 같이 texture가 입혀진 것을 확인할 수 있다.
 
-![result](./img/map/map_03.png)
+![result](./img/procedural_map/03.png)
 
 다음은 Scene의 광원을 설정할 차례이다. 일단 까먹기 쉬우니 renderer에 shadowMap 설정을 추가해준다.
 
@@ -270,7 +270,7 @@ function hexMesh(geo, map) {
 ```
 
 그림자가 적용된 것을 확인할 수 있다.
-![result](./img/map/map_04.png)
+![result](./img/procedural_map/04.png)
 
 ---
 
@@ -300,7 +300,7 @@ scene.add(seaMesh);
 ```
 
 물이 생긴 것을 확인할 수 있다.
-![result](./img/map/map_05.png)
+![result](./img/procedural_map/05.png)
 
 Cylinder의 사이드 부분이 이상하니 살짝 더 큰 Cylinder로 덮어주도록 하자.
 
@@ -340,7 +340,7 @@ scene.add(mapFloor);
 ```
 
 바닥이 생긴 것을 확인할 수 있다.
-![result](./img/map/map_06.png)
+![result](./img/procedural_map/06.png)
 
 ---
 
@@ -447,4 +447,4 @@ function clouds() {
 ```
 
 clouds 함수를 init 함수에서 호출해주면 완성이다.
-![result](./img/map/map_07.png)
+![result](./img/procedural_map/07.png)
