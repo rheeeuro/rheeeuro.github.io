@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Etc
-nav_order: 6
+title: Web Animation
+nav_order: 5
 has_children: true
 ---
