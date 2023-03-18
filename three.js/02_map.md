@@ -140,3 +140,134 @@ for (let i = -10; i <= 10; i++) {
 ![result](./img/map_02.png)
 
 ---
+
+이후 texture 이미지를 assets 폴더에 추가시켜준 뒤 높이도 지정해준다.
+
+```js
+const MAX_HEIGHT = 10;
+const STONE_HEIGHT = MAX_HEIGHT * 0.8;
+const DIRT_HEIGHT = MAX_HEIGHT * 0.7;
+const GRASS_HEIGHT = MAX_HEIGHT * 0.5;
+const SAND_HEIGHT = MAX_HEIGHT * 0.3;
+const DIRT2_HEIGHT = MAX_HEIGHT * 0;
+
+// in init function
+let textures = {
+  dirt: await new TextureLoader().loadAsync("assets/dirt.png"),
+  dirt2: await new TextureLoader().loadAsync("assets/dirt2.jpg"),
+  grass: await new TextureLoader().loadAsync("assets/grass.jpg"),
+  sand: await new TextureLoader().loadAsync("assets/sand.jpg"),
+  water: await new TextureLoader().loadAsync("assets/water.jpg"),
+  stone: await new TextureLoader().loadAsync("assets/stone.png"),
+};
+```
+
+그리고 하나의 Geometry로 통채로 생성하는 대신 지형별로 Boxgeometry 변수를 나누어준다.
+
+```js
+// let hexagonGeometries = new BoxGeometry(0, 0, 0);
+let stoneGeo = new BoxGeometry(0, 0, 0);
+let dirtGeo = new BoxGeometry(0, 0, 0);
+let dirt2Geo = new BoxGeometry(0, 0, 0);
+let sandGeo = new BoxGeometry(0, 0, 0);
+let grassGeo = new BoxGeometry(0, 0, 0);
+```
+
+그리고 설정한 높이에 따라 다른 geometey에 merge되도록 makeHex함수를 수정해준다.
+
+```js
+function makeHex(height, position) {
+  let geo = hexGeometry(height, position);
+
+  if (height > STONE_HEIGHT) {
+    stoneGeo = mergeBufferGeometries([geo, stoneGeo]);
+  } else if (height > DIRT_HEIGHT) {
+    dirtGeo = mergeBufferGeometries([geo, dirtGeo]);
+  } else if (height > GRASS_HEIGHT) {
+    grassGeo = mergeBufferGeometries([geo, grassGeo]);
+  } else if (height > SAND_HEIGHT) {
+    sandGeo = mergeBufferGeometries([geo, sandGeo]);
+  } else if (height > DIRT2_HEIGHT) {
+    dirt2Geo = mergeBufferGeometries([geo, dirt2Geo]);
+  }
+}
+```
+
+hexMesh 함수를 만들어준다.
+
+```js
+function hexMesh(geo, map) {
+  let mat = new MeshPhysicalMaterial({
+    envMap: envMap,
+    envMapIntensity: 1,
+    // envMapIntensity: 0.135,
+    flatShading: true,
+    map,
+  });
+
+  let mesh = new Mesh(get, mat);
+
+  return mesh;
+}
+```
+
+그 후 init 함수 기존의 hexagonMesh를 지형별 Mesh로 바꿔준다.
+
+```js
+let stoneMesh = hexMesh(stoneGeo, textures.stone);
+let grassMesh = hexMesh(grassGeo, textures.grass);
+let dirt2Mesh = hexMesh(dirt2Geo, textures.dirt2);
+let dirtMesh = hexMesh(dirtGeo, textures.dirt);
+let sandMesh = hexMesh(sandGeo, textures.sand);
+scene.add(stoneMesh, dirtMesh, dirt2Mesh, sandMesh, grassMesh);
+```
+
+다음과 같이 texture가 입혀진 것을 확인할 수 있다.
+
+![result](./img/map_03.png)
+
+다음은 Scene의 광원을 설정할 차례이다. 일단 까먹기 쉬우니 renderer에 shadowMap 설정을 추가해준다.
+
+```js
+renderer.shadowMap.type = PCFShadowMap;
+```
+
+그 다음 Scene에 Light를 추가해준다.
+
+```js
+const light = new PointLight(
+  new Color("#FFCB8E").convertSRGBToLinear().convertSRGBToLinear(),
+  80,
+  200
+);
+light.position.set(10, 20, 10);
+
+light.castShadow = true;
+light.shadow.mapSize.width = 512;
+light.shadow.mapSize.height = 512;
+light.shadow.camera.near = 0.5;
+light.shadow.camera.far = 500;
+scene.add(light);
+```
+
+그리고 그림자 설정을 hexMesh 함수에 추가해준다.
+
+```js
+function hexMesh(geo, map) {
+  let mat = new MeshPhysicalMaterial({
+    envMap: envmap,
+    envMapIntensity: 0.135,
+    flatShading: true,
+    map,
+  });
+
+  let mesh = new Mesh(geo, mat);
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+
+  return mesh;
+}
+```
+
+그림자가 적용된 것을 확인할 수 있다.
+![result](./img/map_04.png)
