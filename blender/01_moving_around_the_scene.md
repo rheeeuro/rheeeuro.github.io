@@ -20,12 +20,14 @@ Scene에서의 확대 및 축소(줌 인, 줌 아웃)는 Ctrl + 휠 드래그 �
 ---
 
 numpad로 축 별 View를 볼 수 있다.
-||||
-|:---:|:---:|:---:|
-|7<br/>Top View | 8<br/>Rotate Up | 9<br/>Flip View|
-|4<br/>Rotate Left | 5<br/>Persp / Ortho | 6<br/>Rotate Right|
-1<br/>Front View | 2<br/>Rotate Down | 3<br/>Side View |
-||0<br/>Camera View||
+
+|                   |                     |                    |
+| :---------------: | :-----------------: | :----------------: |
+|  7<br/>Top View   |   8<br/>Rotate Up   |  9<br/>Flip View   |
+| 4<br/>Rotate Left | 5<br/>Persp / Ortho | 6<br/>Rotate Right |
+| 1<br/>Front View  |  2<br/>Rotate Down  |  3<br/>Side View   |
+|                   |  0<br/>Camera View  |                    |
+
 <br/>
 
 TKL 키보드에서는 numpad를 이용할 수 없기 때문에 설정에서 emulate해서 사용하기도 하지만, 그렇게 되면 Blender의 일부 기능을 제한할 수 있어서(확실하지는 않다.) 나는 Pie Menu로 사용할 예정이다.
