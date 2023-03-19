@@ -6,14 +6,12 @@ description: "Just the Docs is a responsive Jekyll theme with built-in search th
 permalink: /
 ---
 
-## 이유로's TIL
+## Frontend Recolor
 
 {: .fs-6 }
 
-개발 관련 여러가지 내용들을 기록하는 블로그 입니다.
+프론트엔드 위주 개발 관련 여러가지 내용들을 기록하는 블로그 입니다.
 {: .fs-4 .fw-300 }
-
-
 
 ![result](./img/home.png)
 
