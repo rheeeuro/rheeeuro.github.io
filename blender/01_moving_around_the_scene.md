@@ -32,4 +32,6 @@ numpad로 축 별 View를 볼 수 있다.
 
 TKL 키보드에서는 numpad를 이용할 수 없기 때문에 설정에서 emulate해서 사용하기도 하지만, 그렇게 되면 Blender의 일부 기능을 제한할 수 있어서(확실하지는 않다.) 나는 Pie Menu로 사용할 예정이다.
 
+설정에서 Pie Menu를 활성화 시켜주고 backtick(\`) 키를 통해 Pie Menu를 열 수 있다.
+
 ![result](./img/01/02.gif)
