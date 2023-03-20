@@ -9,11 +9,11 @@ parent: Blender
 
 기본적인 Blender Scene의 조작법을 소개하겠다.
 
-Scene에서의 기본적인 회전(rotation)은 휠 드래그로 한다. (휠 클릭 후 마우스 이동)
+Scene에서의 이동
 
-Scene에서의 기본적인 이동은 Shift + 휠 드래그로 한다.
-
-Scene에서의 확대 및 축소(줌 인, 줌 아웃)는 Ctrl + 휠 드래그 혹은 휠 업 / 휠 다운으로 한다.
+- 회전(rotation): 휠 드래그 (휠 클릭 후 마우스 이동)
+- 이동: Shift + 휠 드래그
+- 확대 및 축소(줌 인, 줌 아웃): Ctrl + 휠 드래그 혹은 휠 업 / 휠 다운
 
 ![result](./img/01/01.gif)
 
@@ -21,7 +21,7 @@ Scene에서의 확대 및 축소(줌 인, 줌 아웃)는 Ctrl + 휠 드래그 �
 
 numpad로 축 별 View를 볼 수 있다.
 
-|                   |                     |                    |
+|                   |       Numpad        |                    |
 | :---------------: | :-----------------: | :----------------: |
 |  7<br/>Top View   |   8<br/>Rotate Up   |  9<br/>Flip View   |
 | 4<br/>Rotate Left | 5<br/>Persp / Ortho | 6<br/>Rotate Right |
