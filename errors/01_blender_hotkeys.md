@@ -7,10 +7,4 @@ parent: Errors
 
 ## Blender Hotkeys Error
 
-Blender를 처음 사용할때 모든 backtick(\`), `Shift + A` 등 모든 단축키가 안먹히는 오류가 생기곤 한다. 맥의 문제인지 윈도우에서도 그런지는 모르겠으나, 단축키를 Override하는 방법으로 수정할 수 있다.
-
-Edit - Preferences 에서 keymap 드롭다운을 Blender로 바꿔주면 된다.
-
-![result](./img/01/01.gif)
-
-[\[참고\]All hotkeys suddenly stopped working.](https://steamcommunity.com/app/365670/discussions/0/2273701484014465350/)
+Blender를 처음 사용할때 모든 backtick(\`), `Shift + A` 등 모든 단축키가 안먹히는 오류가 생기곤 한다. 이 에러때문에 몇시간을 헤맸는데 결과적으로 허무하게도 한글인 상태여서 단축키가 안먹는 것이었다. 한/영을 바꿔주면 단축키가 잘 되는 것을 볼 수 있다.
