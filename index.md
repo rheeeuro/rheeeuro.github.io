@@ -21,7 +21,7 @@ permalink: /
 - [Blender](https://rheeeuro.github.io/blender/)
 - [Etc](https://rheeeuro.github.io/etc/)
 
-[View it on GitHub][github repo]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[GitHub Source][github repo]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ---
 
