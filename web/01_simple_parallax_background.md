@@ -79,4 +79,4 @@ section {
 }
 ```
 
-![result](./img/01/01.gif)
+![result](./img/01/02.gif)
