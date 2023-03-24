@@ -19,6 +19,7 @@ permalink: /
 - [Three.js](https://rheeeuro.github.io/three.js/)
 - [Web](https://rheeeuro.github.io/web/)
 - [Blender](https://rheeeuro.github.io/blender/)
+- [Errors](https://rheeeuro.github.io/errors/)
 - [Etc](https://rheeeuro.github.io/etc/)
 
 [GitHub Source][github repo]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
