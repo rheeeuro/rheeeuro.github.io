@@ -10,7 +10,7 @@ parent: Blender
 이번에는 Light에 대해 알아보겠다.
 Light를 클릭하면 우측 하단의 Object Data property 아이콘이 전구모양으로 바뀐것을 볼 수 있다.
 
-![result](./img/06/01.png)
+<img src="./img/06/01.png" width="50%" />
 
 Point, Sun, Spot, Area의 네 가지 종류가 있다.
 Color를 변경할 수 있고, Light의 Power 수치를 바꿀 수 있다.
