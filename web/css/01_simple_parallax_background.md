@@ -3,6 +3,7 @@ layout: default
 title: Simple Parallax Background
 nav_order: 1
 parent: CSS
+grand_parent: Web
 ---
 
 ## Simple Parallax Background
