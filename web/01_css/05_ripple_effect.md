@@ -41,6 +41,8 @@ HTML구조
 
 - 가장자리 span일수록 transition-delay를 길게 걸어준다. (중앙에 위치한 span은 delay가 0)
 
+- span에 cubic-bezier를 적용해준다 (`cubic-bezier(0.1, 1, 0.2, 4)`)
+
 - Gausian Blur filter를 적용해준다.
 
 filter html
