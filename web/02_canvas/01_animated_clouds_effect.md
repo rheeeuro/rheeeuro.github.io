@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Aminated Clouds Effect
-nav_order: 4
-parent: CSS
+nav_order: 1
+parent: Canvas
 grand_parent: Web
 ---
 
@@ -10,7 +10,7 @@ grand_parent: Web
 
 [[출처] HTML Canvas & Vanilla JavaScript Animation Series 2 - Animated Clouds Effect](https://youtu.be/hF-QBhDG-wE)
 
-![result](./img/06/01.gif)
+![result](./img/01/01.gif)
 
 ### 적용 원리 설명
 
