@@ -8,7 +8,7 @@ grand_parent: Web
 
 ## Particle Effect
 
-[[출처] Particles JS Effect with Pure Vanilla JavaScript | Animated Background Tutorial with Examples](https://youtu.be/d620nV6bp0A)
+[[출처] Particles JS Effect with Pure Vanilla JavaScript](https://youtu.be/d620nV6bp0A)
 
 ![result](./img/02/01.gif)
 
