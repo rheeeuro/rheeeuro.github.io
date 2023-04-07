@@ -8,7 +8,7 @@ grand_parent: Interactive
 
 ## 3D Transform Cube Menu
 
-[[출처] CSS Animations 3D Transform Cube Menu Tutorial | Animated Buttons Hover Effect](https://youtu.be/J_W6njFDw1U)
+[[출처] CSS Animations 3D Transform Cube Menu Tutorial](https://youtu.be/J_W6njFDw1U)
 
 ![result](./img/04/01.gif)
 
