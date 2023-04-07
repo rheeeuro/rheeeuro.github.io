@@ -3,7 +3,7 @@ layout: default
 title: Layered Effect
 nav_order: 3
 parent: CSS
-grand_parent: Web
+grand_parent: Interactive
 ---
 
 ## Layered Effect

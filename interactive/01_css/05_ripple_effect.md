@@ -3,7 +3,7 @@ layout: default
 title: Ripple Effect
 nav_order: 4
 parent: CSS
-grand_parent: Web
+grand_parent: Interactive
 ---
 
 ## Ripple Effect

@@ -17,7 +17,7 @@ permalink: /
 - [ES6](https://rheeeuro.github.io/es6/)
 - [Electron](https://rheeeuro.github.io/electron/)
 - [Three.js](https://rheeeuro.github.io/three.js/)
-- [Web](https://rheeeuro.github.io/web/)
+- [Interactive](https://rheeeuro.github.io/interactive/)
 - [Blender](https://rheeeuro.github.io/blender/)
 - [Errors](https://rheeeuro.github.io/errors/)
 - [Etc](https://rheeeuro.github.io/etc/)

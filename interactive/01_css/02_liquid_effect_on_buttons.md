@@ -3,7 +3,7 @@ layout: default
 title: Liquid Effects on Buttons
 nav_order: 2
 parent: CSS
-grand_parent: Web
+grand_parent: Interactive
 ---
 
 ## Liquid Effects on Buttons

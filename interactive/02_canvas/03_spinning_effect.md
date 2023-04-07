@@ -3,7 +3,7 @@ layout: default
 title: Spinning Effect
 nav_order: 1
 parent: Canvas
-grand_parent: Web
+grand_parent: Interactive
 ---
 
 ## Spinning Effect

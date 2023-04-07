@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Canvas
-parent: Web
+parent: Interactive
 nav_order: 2
 has_children: true
 ---

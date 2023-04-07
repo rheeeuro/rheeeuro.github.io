@@ -1,7 +1,7 @@
 ---
 layout: default
 title: CSS
-parent: Web
+parent: Interactive
 nav_order: 1
 has_children: true
 ---

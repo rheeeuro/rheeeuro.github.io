@@ -3,7 +3,7 @@ layout: default
 title: Aminated Clouds Effect
 nav_order: 1
 parent: Canvas
-grand_parent: Web
+grand_parent: Interactive
 ---
 
 ## Aminated Clouds Effect

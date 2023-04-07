@@ -3,7 +3,7 @@ layout: default
 title: Particle Effect
 nav_order: 1
 parent: Canvas
-grand_parent: Web
+grand_parent: Interactive
 ---
 
 ## Particle Effect
