@@ -10,7 +10,7 @@ grand_parent: Interactive
 
 [[출처] Animated JavaScript Eyeballs](https://youtu.be/52rKp7P3gIs)
 
-![result](./img/05/01.gif)
+![result](./img/04/01.gif)
 
 ### 적용 원리 설명
 
