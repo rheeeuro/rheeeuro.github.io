@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Ripple Effect
-nav_order: 4
+nav_order: 5
 parent: CSS
 grand_parent: Interactive
 ---
