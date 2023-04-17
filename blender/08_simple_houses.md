@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Simple Houses
-nav_order: 6
+nav_order: 8
 parent: Blender
 ---
 
