@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Making a lighthouse
-nav_order: 6
+nav_order: 9
 parent: Blender
 ---
 
