@@ -8,7 +8,7 @@ grand_parent: Interactive
 
 ## Canvas Fireworks
 
-[[출처] Particles JS Effect with Pure Vanilla JavaScript](https://youtu.be/d620nV6bp0A)
+[[출처] How to Code: Realistic Canvas Fireworks](https://youtu.be/R_CnWF3a_ks)
 
 ![result](./img/08/01.gif)
 
