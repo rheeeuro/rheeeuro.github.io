@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Particle Effect
-nav_order: 1
+nav_order: 2
 parent: Canvas
 grand_parent: Interactive
 ---

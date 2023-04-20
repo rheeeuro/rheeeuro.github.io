@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Animated Eyeballs
-nav_order: 1
+nav_order: 4
 parent: Canvas
 grand_parent: Interactive
 ---

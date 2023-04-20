@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Spinning Effect
-nav_order: 1
+nav_order: 3
 parent: Canvas
 grand_parent: Interactive
 ---
