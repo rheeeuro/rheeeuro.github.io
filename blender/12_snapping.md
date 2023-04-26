@@ -32,3 +32,5 @@ parent: Blender
 또한, 지금은 사용하지 않겠지만 `Align Rotation to target` 옵션을 켜면 표면에 따라 rotation도 변경되게 된다.
 
 ![result](./img/12/04.gif)
+
+`Project Individual Elements` 옵션을 체크하면, 여러 개의 오브젝트를 이동하더라도 각각 Snapping이 된다.
