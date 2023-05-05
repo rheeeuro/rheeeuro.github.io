@@ -68,3 +68,135 @@ sphere.rotation.y += Math.PI * 1.25;
 envmap이 추가되어 검은 부분도 자연스러워지는 것을 볼 수 있다.
 
 ![result](./img/03/03.png)
+
+---
+
+다음으로는 비행기를 띄워보겠다. 이전 링크에서 `plane/scene.glb` 파일과 `mask.png` 파일을 다운로드한 뒤 `GLTFLoader`를 이용하여 불러온다.
+
+```js
+let plane = (await new GLTFLoader().loadAsync("assets/plane/scene.glb")).scene
+  .children[0];
+let planesData = [makePlane(plane, textures.planeTrailMask, envMap, scene)];
+```
+
+비행기를 만드는 함수도 만들어준다.
+
+```js
+function makePlane(planeMesh, trailTexture, envMap, scene) {
+  let plane = planeMesh.clone();
+  plane.scale.set(0.001, 0.001, 0.001);
+  plane.position.set(0, 0, 0);
+  plane.rotation.set(0, 0, 0);
+  plane.updateMatrixWorld();
+
+  plane.traverse((object) => {
+    if (object instanceof Mesh) {
+      object.material.envMap = envMap;
+      object.castShadow = true;
+      object.receiveShadow = true;
+    }
+  });
+
+  let group = new Group();
+  group.add(plane);
+
+  scene.add(group);
+
+  return {
+    group,
+    yOff: 10.5 + Math.random() * 1.0,
+  };
+}
+```
+
+그 후 animationLoop에 추가해준다.
+
+```js
+planesData.forEach((planeData) => {
+  let plane = planeData.group;
+
+  plane.position.set(0, 0, 0);
+  plane.rotation.set(0, 0, 0);
+  plane.updateMatrixWorld();
+
+  plane.translateY(planeData.yOff);
+  plane.rotateOnAxis(new Vector3(1, 0, 0), +Math.PI * 0.5);
+});
+```
+
+그런 뒤 확대해보면 비행기가 하나 떠있는 것을 발견할 수 있다.
+
+![result](./img/03/04.png)
+
+비행기를 구 중심으로부터 랜덤한 yOffset으로 띄워놓았기 때문에 일정 구간을 돌도록 만들어주어야 한다.
+
+먼저 makePlane 함수의 리턴에 다음을 추가해준다.
+
+```js
+return {
+  group,
+  rot: 0,
+  rad: 0.5,
+  yOff: 10.5 + Math.random() * 1.0,
+};
+```
+
+이후 `Clock`으로 delta를 구해준다.
+
+```js
+let clock = new Clock();
+
+renderer.setAnimationLoop(() => {
+  let delta = clock.getDelta();
+  ...
+});
+```
+
+delta에 따라 y축으로 회전하고 그에 따라 x, z축도 회정하도록 만들어준다.
+
+```js
+planesData.forEach((planeData) => {
+  let plane = planeData.group;
+
+  plane.position.set(0, 0, 0);
+  plane.rotation.set(0, 0, 0);
+  plane.updateMatrixWorld();
+
+  planeData.rot += delta * 0.25;
+  plane.rotateOnAxis(new Vector3(0, 1, 0), planeData.rot);
+  plane.rotateOnAxis(new Vector3(0, 0, 1), planeData.rad);
+  plane.translateY(planeData.yOff);
+  plane.rotateOnAxis(new Vector3(1, 0, 0), +Math.PI * 0.5);
+});
+```
+
+일정 궤도를 회전하는 비행기가 완성되었다.
+
+![result](./img/03/05.gif)
+
+이제 비행기가 랜덤하게 움직이도록 값들을 추가해준다.
+
+```js
+// makePlane return statement
+return {
+  group,
+  rot: Math.random() * Math.PI * 2.0,
+  rad: Math.random() * Math.PI * 0.45 + 0.2,
+  yOff: 10.5 + Math.random() * 1.0,
+  randomAxis: new Vector3(nr(), nr(), nr()).normalize(),
+  randomAxisRot: Math.random() * Math.PI * 2,
+};
+
+// nr function
+function nr() {
+  return Math.random() * 2 - 1;
+}
+
+// animation Loop
+planesData.forEach((planeData) => {
+  ...
+  planeData.rot += delta * 0.25;
+  plane.rotateOnAxis(planeData.randomAxis, planeData.randomAxisRot);
+  ...
+})
+```
