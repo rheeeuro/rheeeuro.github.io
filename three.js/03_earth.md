@@ -200,3 +200,63 @@ planesData.forEach((planeData) => {
   ...
 })
 ```
+
+다음에는 비행기의 잔상(트레일)을 추가해보겠다. `makePlane`함수에 trail을 추가한다.
+
+```js
+let trail = new Mesh(
+  new PlaneGeometry(1, 2),
+  new MeshPhysicalMaterial({
+    envMap,
+    envMapIntensity: 3,
+
+    // roughness: 0.4,
+    // metalness: 0,
+    // transmission: 1,
+
+    transparent: true,
+    opacity: 1,
+    alphaMap: trailTexture,
+  })
+);
+trail.rotateX(Math.PI);
+trail.translateY(1.1);
+
+...
+
+group.add(trail);
+
+...
+```
+
+비행기를 멈춰보면 트레일이 생긴 것을 볼 수 있다.
+
+![result](./img/03/06.png)
+
+비행기들을 추가하고 원래대로 이동하도록 변경하면 다음과 같은 것을 볼 수 있다.
+
+![result](./img/03/07.gif)
+
+다음으로느 지구 주변의 원 효과를 위해 새로운 Scene과 카메라를 추가해준다.
+
+```js
+const ringScene = new Scene();
+
+const ringCamera = new PerspectiveCamera(
+  45,
+  innerWidth / innerHeight,
+  0.1,
+  1000
+);
+ringCamera.position.set(0, 0, 50);
+```
+
+이전 Clock과 같이 ring을 세개 추가해주고 렌더링 함수에 ringScene도 렌더링하도록 만들어준다.
+
+```js
+renderer.autoClear = false;
+renderer.render(ringScene, ringCamera);
+renderer.autoClear = true;
+```
+
+![result](./img/03/08.gif)
