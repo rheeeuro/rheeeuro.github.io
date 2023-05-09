@@ -260,3 +260,115 @@ renderer.autoClear = true;
 ```
 
 ![result](./img/03/08.gif)
+
+---
+
+마지막으로 낮과 밤을 만들어보겠다. 현재 light 외의 moonlight를 만들어 씬에 추가해준다. 그리고 animejs 모듈을 추가한다. 그 후 init 함수에 anime를 추가해준다.
+
+```js
+window.addEventListener("keypress", (e) => {
+  if (e.key !== "j") return;
+
+  anime({
+    targets: sunBackground,
+    opacity: [0, 1],
+    easing: "easeInOutSine",
+    duration: 500,
+  });
+});
+```
+
+이제 키보드의 J를 누르면 배경이 하얘지는 것을 볼 수 있다.
+
+![result](./img/03/09.gif)
+
+sphere과 plane에 intensity 속성을 추가한다.
+
+```js
+sphere.sunEnvIntensity = 0.4;
+sphere.moonEnvIntensity = 0.1;
+
+// makePlane function
+object.sunEnvIntensity = 1;
+object.moonEnvIntensity = 0.3;
+
+trail.sunEnvIntensity = 3;
+trail.moonEnvIntensity = 0.7;
+
+// rings
+ring1.sunOpacity = 0.35;
+ring1.moonOpacity = 0.03;
+
+ring2.sunOpacity = 0.35;
+ring2.moonOpacity = 0.1;
+
+ring3.sunOpacity = 0.35;
+ring3.moonOpacity = 0.03;
+```
+
+마지막으로 anime를 수정한다 (조금 복잡할 수 있다.)
+
+```js
+let daytime = true;
+let animating = false;
+
+window.addEventListener("mousemove", (e) => {
+  if (animating) return;
+
+  let anim;
+  if (e.clientX > innerWidth - 200 && !daytime) {
+    anim = [1, 0];
+  } else if (e.clientX < 200 && daytime) {
+    anim = [0, 1];
+  } else {
+    return;
+  }
+
+  animating = true;
+
+  let obj = { t: 0 };
+  anime({
+    targets: obj,
+    t: anim,
+    complete: () => {
+      animating = false;
+      daytime = !daytime;
+    },
+    update: () => {
+      sunLight.intensity = 3.5 * (1 - obj.t);
+      moonLight.intensity = 3.5 * obj.t;
+
+      sunLight.position.setY(20 * (1 - obj.t));
+      moonLight.position.setY(20 * obj.t);
+
+      sphere.material.sheen = 1 - obj.t;
+
+      scene.children.forEach((child) => {
+        child.traverse((object) => {
+          if (object instanceof Mesh && object.material.envMap) {
+            object.material.envMapIntensity =
+              object.sunEnvIntensity * (1 - obj.t) +
+              object.moonEnvIntensity * obj.t;
+          }
+        });
+      });
+
+      ringScene.children.forEach((child, i) => {
+        child.traverse((object) => {
+          object.material.opacity =
+            object.sunOpacity * (1 - obj.t) + object.moonOpacity * obj.t;
+        });
+      });
+
+      sunBackground.style.opacity = 1 - obj.t;
+      moonBackground.style.opacity = obj.t;
+    },
+    easing: "easeInOutSine",
+    duration: 500,
+  });
+});
+```
+
+완성된 모습이다.
+
+![result](./img/03/10.gif)
