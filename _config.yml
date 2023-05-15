@@ -170,4 +170,4 @@ compress_html:
   # ignore:
   #   envs: all
 
-favicon_ico: "/assets/images/favicon.ico"
+favicon_ico: "favicon.ico"
