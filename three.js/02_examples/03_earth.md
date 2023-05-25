@@ -2,7 +2,8 @@
 layout: default
 title: Earth and planes
 nav_order: 3
-parent: Three.js
+parent: Examples
+grand_parent: Three.js
 ---
 
 ## Earth and planes

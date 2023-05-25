@@ -2,7 +2,8 @@
 layout: default
 title: Clock
 nav_order: 1
-parent: Three.js
+parent: Examples
+grand_parent: Three.js
 ---
 
 ## Clock

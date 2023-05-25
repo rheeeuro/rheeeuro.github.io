@@ -2,7 +2,8 @@
 layout: default
 title: Procedural Map
 nav_order: 2
-parent: Three.js
+parent: Examples
+grand_parent: Three.js
 ---
 
 ## Procedural Map
