@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Optional Chaining
-nav_order: 1
+nav_order: 2
 parent: ES2020
 grand_parent: ES6
 ---
