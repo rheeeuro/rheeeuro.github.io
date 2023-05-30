@@ -24,7 +24,7 @@ console.log("             hello        ".trimEnd());
 ```
 
 {: .highlight }
-`             hello`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello
 
 양쪽으로 자르고 싶다면 그냥 trim을 사용하면 된다.
 
