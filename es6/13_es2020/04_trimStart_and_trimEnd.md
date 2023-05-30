@@ -20,7 +20,7 @@ hello
 반대로도 가능하다.
 
 ```js
-console.log("hello        ".trimEnd());
+console.log("             hello        ".trimEnd());
 ```
 
 {: .highlight }
