@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Logical NULLISH Assignment
-nav_order: 2
+nav_order: 3
 parent: ES2021
 grand_parent: ES6
 ---
