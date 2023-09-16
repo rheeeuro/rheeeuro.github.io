@@ -316,7 +316,7 @@ console.log(roy.name);
 <details>
 <summary>정답</summary>
 
-{.warning}
+{: .warning }
 VM359:1 Uncaught TypeError: Cannot read properties of undefined (reading 'name')
 
 </details>

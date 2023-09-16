@@ -170,6 +170,7 @@ console.log(a);
 
 <details>
 <summary>정답</summary>
+
 ```js
 1
 undefined
