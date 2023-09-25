@@ -1,3 +1,10 @@
+---
+layout: default
+title: Closure
+nav_order: 4
+parent: Core JS
+---
+
 # 클로저 (closure)
 
 ## closure란?
