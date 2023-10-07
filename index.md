@@ -20,8 +20,8 @@ permalink: /
 - [Webpack](https://rheeeuro.github.io/webpack/)
 - [Interactive](https://rheeeuro.github.io/interactive/)
 - [Blender](https://rheeeuro.github.io/blender/)
-- [Errors](https://rheeeuro.github.io/errors/)
 - [Core JS](https://rheeeuro.github.io/corejs/)
+- [Errors](https://rheeeuro.github.io/errors/)
 - [Etc](https://rheeeuro.github.io/etc/)
 
 [GitHub Source][github repo]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
