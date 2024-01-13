@@ -22,7 +22,7 @@ function App() {
   let count = 0;
 
   return (
-    <>
+    <div>
       <button onClick={() => {
         count++;
         }}>
@@ -36,7 +36,7 @@ function App() {
         }}>
    		감소
       </button>
-    </>
+    </div>
   );
 }
 ```
@@ -47,7 +47,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div>
       <button onClick={() => {
         setCount(count + 1);
         }}>
@@ -61,10 +61,11 @@ function App() {
         }}>
    		감소
       </button>
-    </>
+    </div>
   );
 }
 ```
+
 </details>
 
 ### 1.2 const?, let?
