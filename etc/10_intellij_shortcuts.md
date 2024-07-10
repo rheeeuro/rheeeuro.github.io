@@ -39,11 +39,9 @@ parent: Etc
 ### Refactor
 
 이름바꾸기: ⇧ + F6
-
 시그니처 바꾸기: ⌘ + F6
 
 ### Git
 
 Git Log 보기: ⌘ + 9
-
 Commit 보기: ⌘ + 0
